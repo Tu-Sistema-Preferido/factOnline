@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación G-SISTEM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jqueryfactadr.js"></script>
+
+
+</head>
+<body img src="background.png"> 
+    <div class="container">
+        <h1>Facturación G-SISTEM</h1>
+        <form id="invoice-form">
+            <div>
+                <label for="establecimiento-id">Establecimiento:</label>
+                <input type="text" id="establecimiento-id">
+            </div>
+            <div>
+                <label for="fecha-id">Fecha:</label>
+                <input type="text" id="fecha-id" required>
+            </div>
+            <div>
+                <label for="cliente-id">ID Cliente:</label>
+                <input type="text" id="cliente-id" required>
+            </div>
+            <div>
+                <label for="cliente-name">Nombre del Cliente:</label>
+                <input type="text" id="cliente-name" required>
+            </div>
+            <div>
+                <label for="telefono-name">Num Telefono:</label>
+                <input type="text" id="telefono-name" required>
+            </div>
+            <div>
+                <label for="product-name">Nombre del Producto:</label>
+                <input type="text" id="product-name" required>
+            </div>
+            <div>
+                <label for="product-price">Precio:</label>
+                <input type="number" id="product-price" required>
+            </div>
+            <div>
+                <label for="product-quantity">Cantidad:</label>
+                <input type="number" id="product-quantity" required>
+            </div>
+            <button type="submit">Agregar Producto</button>
+        </form>
+
+        <table id="invoice-table">
+            <thead>
+                <tr>
+                    <th>Establecimiento</th>
+                    <th>Fecha</th>
+                    <th>ID Cliente</th>
+                    <th>Nombre</th>
+                    <th>Num Telefono</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cant</th>
+                    <th>Total</th>
+                </tr>
+           </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="total">
+            <strong>Total Factura: $<span id="invoice-total">0.00</span></strong>
+
+
+        <button onclick="imprimirTabla()">Imprimir Factura</button>
+
+    </div>
+
+    <script>
+
+        function imprimirTabla() {
+            var tabla = document.getElementById('invoice-table').outerHTML;
+            var estilo = '<style>table { width: 100%; border-collapse: collapse; } table, th, td { border: 2px solid black; }</style>';
+            var ventanaImpresion = window.open('', '_blank', 'height=500,width=800');
+            ventanaImpresion.document.write('<html><head><title>Imprimir Factura</title>');
+            ventanaImpresion.document.write(estilo);
+            ventanaImpresion.document.write('</head><body>');
+            ventanaImpresion.document.write(tabla);
+            ventanaImpresion.document.write('</body></html>');
+            ventanaImpresion.document.close();
+            ventanaImpresion.print();
+        }
+        
+    </script>
+
+</body>
+</html>
