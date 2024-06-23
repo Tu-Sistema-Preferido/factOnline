@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 850px;
+    max-width: 590px;
     margin: 0 auto;
     padding: 20px;
     background-color: #b403ff;
@@ -57,13 +57,13 @@ button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 th, td {
-    border: 1px solid #dddddd;
+    border: 0.5px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 2px;
 }
 
 th {
